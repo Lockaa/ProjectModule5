@@ -20,7 +20,7 @@
     Researching into APIs / how to set up Mongo DB                                              12:35 - 13:00
     basic file setup                                                                            13:00 - 13:30
     more setup                                                                                  14:00 - 14:30
-    working on front React front end                                                            14:30 -                             
+    working on front React front end                                                            14:30 - 15:15
 
 
 
