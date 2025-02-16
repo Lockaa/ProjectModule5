@@ -16,7 +16,9 @@
 # Record Log:
     2/16/2025:
     Made and initialized github repository & filled in the basics for the README                12:00 - 12:05
-    Planning for general layout of the website                                                  12:05 - 12:20
+    Planning for general layout of the website / databases                                      12:05 - 12:35
+    Researching into APIs / how to set up Mongo DB                                              12:35 - 13:00
+    basic file setup                                                                            13:00 - 13:30
 
 
 
