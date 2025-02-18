@@ -25,7 +25,11 @@
     2/17/2025:
     Researched other Ecommerce type websites (that people have made)                            14:30 - 15:30
     Looked at Blog website githubs                                                              15:30 - 17:00
-    
+    Re-planning from scratch (might do a blog website instead)                                  17:00 - 17:30
+
+    2/18/2025:
+    okay, I'm going to do a blog type website instead
+    working on front end                                                                        12:30 - 
 
 
 
