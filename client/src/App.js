@@ -63,7 +63,7 @@ function App() {
         {posts.map((post) => (
           <div key={post.id} className="post">
             <button className="delete-btn" onClick={() => handleDelete(post.id)}>
-              X
+              delete
             </button>
             <h2>{post.title}</h2>
             <p>{post.content}</p>

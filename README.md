@@ -29,9 +29,11 @@
 
     2/18/2025:
     okay, I'm going to do a blog type website instead
-    working on front end                                                                        12:30 - 
+    working on front end                                                                        12:30 - 15:00
+    Trying to understand MongoDB so I can have posts 'save' between refreshs closing            15:00 - 15:30
 
 
 
 # Challenges:
     Setting everything up initially, figuring out just exactly I have to do.
+    Understanding MongoDB, how to use it, and how to impliment it.
