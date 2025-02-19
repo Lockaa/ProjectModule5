@@ -32,7 +32,17 @@
     working on front end                                                                        12:30 - 15:00
     Trying to understand MongoDB so I can have posts 'save' between refreshs closing            15:00 - 15:30
 
+    2/19/2025:
+    Working on MongoDB connection                                                               11:30 - 13:00
+    turns out I basically have to redo my front end                                             13:00
+    reworking basically everything                                                              13:00 - 14:30
+    trying to get my 'DELETE' route to work (it's not)                                          14:30 - 
+
+
+
 
 # Challenges:
     Setting everything up initially, figuring out just exactly I have to do.
     Understanding MongoDB, how to use it, and how to impliment it.
+
+    Getting the 'delete' route to function as intended, I have add, and post, so you can add blog posts and they're saved, but I can't seem to delete them at current time (15:20). I genuinely don't see what's wrong with my code. (I tried for the sake of it, just feeding it into ChatGPT, and it's not finding my error either).

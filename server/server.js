@@ -37,6 +37,22 @@ app.get('/posts', async (req, res) => {
   }
 });
 
+//DELETE route
+app.delete('/posts/:id', (req, res) => {
+    const postId = req.params.id;  
+    Post.findByIdAndDelete(postId)
+      .then(deletedPost => {
+        if (!deletedPost) {
+          return res.status(404).send({ message: 'Post not found' });
+        }
+        res.status(200).send({ message: 'Post deleted successfully' });
+      })
+      .catch(error => {
+        console.error(error);
+        res.status(500).send({ message: 'Error deleting post' });
+      });
+});
+
 // Add a new post
 app.post('/posts', async (req, res) => {
   const { title, content } = req.body;
