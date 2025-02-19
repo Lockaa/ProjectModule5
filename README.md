@@ -36,13 +36,18 @@
     Working on MongoDB connection                                                               11:30 - 13:00
     turns out I basically have to redo my front end                                             13:00
     reworking basically everything                                                              13:00 - 14:30
-    trying to get my 'DELETE' route to work (it's not)                                          14:30 - 
+    trying to get my 'DELETE' route to work (it's not)                                          14:30 - 15:30
 
+    Finished                                                                                    15:30
 
-
+    Total hours logged:                                                                         12.75
 
 # Challenges:
     Setting everything up initially, figuring out just exactly I have to do.
     Understanding MongoDB, how to use it, and how to impliment it.
 
     Getting the 'delete' route to function as intended, I have add, and post, so you can add blog posts and they're saved, but I can't seem to delete them at current time (15:20). I genuinely don't see what's wrong with my code. (I tried for the sake of it, just feeding it into ChatGPT, and it's not finding my error either).
+
+# Possible improvements:
+    Having a 'log in' page where each person has their own set of blog posts
+    (while not in usual social media fashion or convention) having a button to edit one's post after posting
