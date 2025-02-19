@@ -33,7 +33,6 @@
     Trying to understand MongoDB so I can have posts 'save' between refreshs closing            15:00 - 15:30
 
 
-
 # Challenges:
     Setting everything up initially, figuring out just exactly I have to do.
     Understanding MongoDB, how to use it, and how to impliment it.

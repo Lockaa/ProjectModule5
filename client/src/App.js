@@ -1,101 +1,63 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import './App.css';
 
-function App() {
-  const [posts, setPosts] = useState([
-    {
-      id: 1,
-      title: "My First Blog Post",
-      content: "This is the content of the first post. Welcome to my blog!"
-    },
-    {
-      id: 2,
-      title: "Learning React",
-      content: "React is an awesome library for building user interfaces. This is my journey learning React."
-    },
-    {
-      id: 3,
-      title: "Tips for Web Development",
-      content: "In this post, I'll share some useful tips and tricks for web development, from using Git to optimizing performance."
-    }
-  ]);
-  
-  const [showForm, setShowForm] = useState(false);
-  const [newPost, setNewPost] = useState({ title: '', content: '' });
+const App = () => {
+  const [posts, setPosts] = useState([]); // State to hold posts
+  const [newPost, setNewPost] = useState({ title: '', content: '' }); // State for new post input fields
 
-  // Handle form input changes
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setNewPost({ ...newPost, [name]: value });
-  };
+  // Fetch posts from the backend when the component mounts
+  useEffect(() => {
+    axios.get('http://localhost:5000/posts') // Corrected API URL to backend on port 5000
+      .then(response => {
+        setPosts(response.data); // Set the posts from the backend
+      })
+      .catch(error => console.log(error)); // Handle any errors in fetching posts
+  }, []);
 
-  // Handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (newPost.title && newPost.content) {
-      setPosts([
-        ...posts,
-        { id: posts.length + 1, title: newPost.title, content: newPost.content }
-      ]);
-      setNewPost({ title: '', content: '' }); // Reset form
-      setShowForm(false); // Hide form after submission
-    }
-  };
+  // Handle form submission to create a new post
+  const handlePostSubmit = (e) => {
+    e.preventDefault(); // Prevent the default form submit behavior
 
-  // Handle post deletion
-  const handleDelete = (id) => {
-    setPosts(posts.filter((post) => post.id !== id));
+    // Send the new post to the backend
+    axios.post('http://localhost:5000/posts', newPost) // Corrected API URL to backend on port 5000
+      .then(response => {
+        setPosts([...posts, response.data]); // Add the new post to the list
+        setNewPost({ title: '', content: '' }); // Reset form fields
+      })
+      .catch(error => console.log(error)); // Handle any errors in submitting the post
   };
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Welcome to My Blog</h1>
-        <button 
-          className="add-post-btn" 
-          onClick={() => setShowForm(!showForm)}
-        >
-          {showForm ? "Cancel" : "Make a Post"}
-        </button>
-      </header>
+    <div>
+      <h1>Posts</h1>
+      {/* Form for adding new post */}
+      <form onSubmit={handlePostSubmit}>
+        <input 
+          type="text" 
+          placeholder="Title" 
+          value={newPost.title} 
+          onChange={e => setNewPost({ ...newPost, title: e.target.value })}
+        />
+        <textarea 
+          placeholder="Content" 
+          value={newPost.content} 
+          onChange={e => setNewPost({ ...newPost, content: e.target.value })}
+        />
+        <button type="submit">Add Post</button>
+      </form>
 
-      <div className="post-list">
-        {posts.map((post) => (
-          <div key={post.id} className="post">
-            <button className="delete-btn" onClick={() => handleDelete(post.id)}>
-              delete
-            </button>
-            <h2>{post.title}</h2>
+      {/* List of posts */}
+      <ul>
+        {posts.map(post => (
+          <li key={post._id}>
+            <h3>{post.title}</h3>
             <p>{post.content}</p>
-          </div>
+          </li>
         ))}
-      </div>
-
-      {showForm && (
-        <div className="post-form">
-          <h2>Create a New Post</h2>
-          <form onSubmit={handleSubmit}>
-            <input 
-              type="text" 
-              name="title" 
-              placeholder="Post Title" 
-              value={newPost.title} 
-              onChange={handleInputChange} 
-              required 
-            />
-            <textarea 
-              name="content" 
-              placeholder="Post Content" 
-              value={newPost.content} 
-              onChange={handleInputChange} 
-              required 
-            ></textarea>
-            <button type="submit">Submit</button>
-          </form>
-        </div>
-      )}
+      </ul>
     </div>
   );
-}
+};
 
 export default App;
